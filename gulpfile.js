@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require("gulp-autoprefixer");
 var babel = require('gulp-babel');
+var fs = require('fs');
 
 gulp.task('sass', function() {
     gulp.src('src/scss/*.scss')
@@ -11,14 +12,14 @@ gulp.task('sass', function() {
           cascade: false
         }))
         .pipe(gulp.dest("dest/css"))
-        // .pipe(gulp.dest("../css")) //←任意の場所にcssを出力
+        .pipe(gulp.dest("style"))
 });
 
 gulp.task('es6', function() {
   return gulp.src('src/es6/*.js')
         .pipe(babel())
         .pipe(gulp.dest('dest/js'))
-        // .pipe(gulp.dest("../js")) //←任意の場所にjsを出力
+        .pipe(gulp.dest("js"))
 });
 
 gulp.task('watch', function(){
