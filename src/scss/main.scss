@@ -1,5 +1,17 @@
 // CSS Template 2018/3/3 taichi.m
 
+//modlue//
+  .dis-none{display: none;}
+  .pull-anime-show{
+    transition-duration: 0.5s;
+    opacity: 1;
+    display: block !important;
+  }
+  .pull-anime-hide{
+    transition-duration: 0.5s;
+    opacity: 0;
+    display: none !important;
+  }
 //global-variable(First declaration)
   $width:980px;
   $font-1: 14px;
@@ -158,7 +170,7 @@
     .list{
       padding: 0px;
       list-style: none;
-      background-color: #f8f8f8;
+      background-color: #ffffff;
       margin: 0;
       li{
         border-bottom: #ccc 1px solid;
