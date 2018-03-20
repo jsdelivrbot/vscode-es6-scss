@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var autoprefixer = require("gulp-autoprefixer");
 var babel = require('gulp-babel');
 var fs = require('fs');
+let cleanCSS = require('gulp-clean-css');
+ 
 
 gulp.task('sass', function() {
     gulp.src('src/scss/*.scss')
@@ -11,8 +13,14 @@ gulp.task('sass', function() {
           browsers: ["last 2 versions", "ie >= 9", "Android >= 4","ios_saf >= 8"],
           cascade: false
         }))
-        .pipe(gulp.dest("dest/css"))
+        .pipe(gulp.dest("dest/compiled"))
         .pipe(gulp.dest("style"))
+});
+
+gulp.task('minify-css', () => {
+  return gulp.src('dest/compiled/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('dest/minify'));
 });
 
 gulp.task('es6', function() {
@@ -25,6 +33,7 @@ gulp.task('es6', function() {
 gulp.task('watch', function(){
   gulp.watch('src/scss/*.scss', ['sass']);
   gulp.watch('src/es6/*.js', ['es6']);
+  gulp.watch('src/scss/*.scss', ['minify-css']);
 });
 
 gulp.task('default', ['sass'], function() {
