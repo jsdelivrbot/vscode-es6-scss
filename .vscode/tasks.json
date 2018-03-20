@@ -11,6 +11,16 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "type": "gulp",
+      "task": "watch",
+      "problemMatcher": []
+    },
+    {
+      "type": "gulp",
+      "task": "minify-css",
+      "problemMatcher": []
     }
   ],
 }
