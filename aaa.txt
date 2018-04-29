@@ -1,1 +1,19 @@
-aaaaaa
+アップデートの確認
+npm list --depth=0
+
+最新バージョンの確認
+npm outdated
+
+更新する(package.jsonの情報だけ、中身は変わっていない)
+ncu -u (-uを抜くと、更新できるバージョンをチェックできる)
+
+中身をpackage.jsonにあわせて更新する
+npm update
+
+
+
+
+グローバルインストールしたもの
+
+↓npmでinstallしたもののバージョンチェック
+npm install -g npm-check-updates
